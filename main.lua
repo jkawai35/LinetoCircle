@@ -9,12 +9,19 @@ function love.load()
 end
 
 function love.update(dt)
-  for _, circle in ipairs(circles) do
-    circle:update(dt)
+  for i = #circles, 1, -1 do
+    local circle = circles[i]
+    if circle.alpha < 0.2 then
+      table.remove(circles, i)
+    else
+      circle:update(dt)
+    end
   end
 end
 
 function love.draw()
+  love.graphics.setColor(255, 255, 255, 1)
+  love.graphics.print("Balls: " .. #circles, 10, 10)
   if position1 and position2 and position3 and position4 then
     love.graphics.setColor(255, 255, 255, 1)
     love.graphics.line(position1, position2, position3, position4)
