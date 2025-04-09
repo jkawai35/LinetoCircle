@@ -21,7 +21,7 @@ end
 
 function love.draw()
   love.graphics.setColor(255, 255, 255, 1)
-  love.graphics.print("Balls: " .. #circles, 10, 10)
+  love.graphics.print("Balls: " .. #circles, 10, 10, 0, 2, 2)
   if position1 and position2 and position3 and position4 then
     love.graphics.setColor(255, 255, 255, 1)
     love.graphics.line(position1, position2, position3, position4)
